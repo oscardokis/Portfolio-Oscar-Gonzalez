@@ -1,33 +1,32 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
+export function SideBar({children}) {
+  return (
+    <div className="fixed z-1 h-32 lg:h-full w-full lg:w-3/12 lg:max-w-56 overflow-x-hidden lg:px-4 lg:pt-24 bg-black flex flex-col sm:flex-row lg:flex-col justify-center items-center gap-4 lg:gap-40">
+    {children}
+    </div>
+  )
+}
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <SideBar>
+      <div className="flex lg:flex-col items-center w-auto gap-4">
+        <div className='profilePicture w-16 h-16 rounded-full object-contain'>
+        </div>
+        <div className='flex flex-col items-center'>
+          <p>Oscar Gonzalez</p>
+          <p>WebApp Developer</p>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="flex lg:flex-col gap-8 w-auto lg:items-center">
+        <a href="#projects">Projects</a>
+        <a href="about">About</a>
+        <a href="contact">Contacts</a>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    </SideBar>
+
     </>
   )
 }
