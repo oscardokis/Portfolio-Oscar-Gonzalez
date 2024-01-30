@@ -7,17 +7,21 @@ html{
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+  font-size: 0.875rem; 
+  line-height: 1.25rem;
+  color: aliceblue;
 }
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size:x-large;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: rgb(24 24 27);
 
 }
 .profilePicture{
   background-image: url("./assets/profileImg96wpx.jpg");
+}
+@media (min-width: 1024px) {
+  html{
+    font-size: 1rem;
+    line-height: 1.5rem
+  }
 }

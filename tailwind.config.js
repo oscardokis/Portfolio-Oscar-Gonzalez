@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+        'RecipesAndDrinks':"url('./src/assets/RecipesAndDrinks.gif')",
+      },
+      screens:{
+        xs: '480px',
+      }
+    },
   },
   plugins: [],
 }
