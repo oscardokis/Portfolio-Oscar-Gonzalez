@@ -10,7 +10,7 @@ export default {
         'RecipesAndDrinks':"url('./src/assets/RecipesAndDrinks.gif')",
       },
       screens:{
-        xs: '480px',
+        xs: '370px',
       }
     },
   },

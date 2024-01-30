@@ -17,7 +17,7 @@ html{
 
 }
 .profilePicture{
-  background-image: url("./assets/profileImg96wpx.jpg");
+  background-image: url("./assets/ProfilePicture.jpg");
 }
 @media (min-width: 1024px) {
   html{
