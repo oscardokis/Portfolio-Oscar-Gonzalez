@@ -24,7 +24,7 @@ function App() {
     <div className='flex justify-center '>
     <SideBar>
       <div className="lg:mt-24 flex lg:flex-col items-center w-auto gap-4 px-3">
-        <img src="/assets/ProfilePicture.jpg" alt="Profile Picture" className='w-16 h-16 lg:w-24 lg:h-24 xl:w-40 xl:h-40 rounded-full object-cover' />
+        <img src="/ProfilePicture.jpg" alt="Profile Picture" className='w-16 h-16 lg:w-24 lg:h-24 xl:w-40 xl:h-40 rounded-full object-cover' />
         
         <div className='flex flex-col items-center gap-2'>
           <p className='sm:text-lg lg:text-xl xl:text-4xl text-center'>Oscar Gonzalez</p>
