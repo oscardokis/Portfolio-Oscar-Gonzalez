@@ -20,7 +20,7 @@ const projects = [
 
 export function SideBar({children}) {
   return (
-    <div className="fixed top-0 left-0 h-32 flex-wrap sm:h-24 lg:h-full w-full lg:w-1/6 lg:max-w-56 overflow-hidden sm:px-4 lg:px-4 bg-zinc-950 flex sm:flex-row lg:flex-col items-center justify-around lg:justify-start lg:gap-20">
+    <div className="fixed lg:sticky top-0 left-0 h-32 flex-wrap sm:h-24 lg:h-screen w-full lg:w-1/6 overflow-hidden sm:px-4 lg:px-4 bg-zinc-950 flex sm:flex-row lg:flex-col items-center justify-around lg:justify-start lg:gap-20">
     {children}
     </div>
   )
@@ -37,7 +37,7 @@ function ButtonMenu(props){
   return(
     <>
     <button 
-      className='hover:underline underline-offset-1 flex items-center'
+      className='hover:underline underline-offset-1 flex items-center lg:text-md xl:text-2xl'
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseOut}
       onClick={() => {handleClick(buttonText)}}
@@ -65,12 +65,12 @@ function ButtonMenu(props){
 export function CardsProjects({title, buttonTexts, img, url}){
   const [toggleLink, useToggleLink] = useState(false);
   return(
-    <div className='flex flex-col justify-start bg-zinc-800 rounded-lg'>
+    <div className='flex flex-col justify-start bg-zinc-800 rounded-lg shadow-lg shadow-cyan-500/50'>
       <a target='_blank' href={url}>
-        <img src={`./src/assets/${img}`} alt={title} className='object-cover object-center w-full h-52 xl:h-72 rounded-lg xs:h-64'/>
+        <img src={`./src/assets/${img}`} alt={title} className='object-cover object-center w-full h-52 xl:h-96 rounded-lg xs:h-64'/>
       </a>
       <div className='m-5'>
-        <div className='flex gap-4 sm:gap-8'>
+        <div className='flex gap-x-2 sm:gap-x-8 flex-wrap'>
           {
             buttonTexts.map((buttonText, indexButton) => (
               <button className='p-2 rounded-lg bg-zinc-900 hover:bg-zinc-950' key={indexButton}>{buttonText}</button>
@@ -82,7 +82,7 @@ export function CardsProjects({title, buttonTexts, img, url}){
         href={url} 
         onMouseEnter={() => {useToggleLink(true)}}
         onMouseLeave={() => {useToggleLink(false)}}
-        className='flex mt-6 text-lg lg:text-xl items-center max-w-max hover:underline hover:decoration-1'>
+        className='flex mt-3 sm:mt-6 text-lg lg:text-xl items-center max-w-max hover:underline hover:decoration-1'>
           <h2 >{title}</h2>
           <span className='ml-2'>
             {toggleLink ? (<HiOutlineExternalLink/>):(<LiaExternalLinkSquareAltSolid />)}
@@ -94,9 +94,9 @@ export function CardsProjects({title, buttonTexts, img, url}){
 }
 function AllProjects(){
   return (
-    <section className='pt-32 pb-16 sm:pt-24 lg:pt-0 lg:ml-44 xl:ml-56'>
-      <h1 className='text-center my-6 text-xl lg:text-3xl lg:ml-4'>All Projects</h1>
-      <div className='grid grid-cols-1 gap-4 px-1 max-w-md mx-auto sm:max-w-5xl sm:grid-cols-2 sm:px-2'>
+    <section className='pt-32 sm:pt-24 lg:pt-0 w-full lg:w-5/6'>
+      <h1 className='shadow-lg shadow-cyan-500/50 text-center mb-4 py-5 text-xl lg:text-5xl font-semibold'>All Projects</h1>
+      <div className='grid grid-cols-1 gap-8 px-1 my-12 lg:my-16 max-w-md mx-auto sm:max-w-5xl lg:max-w-7xl sm:grid-cols-2 sm:px-2'>
         {
           projects.map((project, index) => (
             <CardsProjects
@@ -115,15 +115,15 @@ function AllProjects(){
 }
 function Home(){
   return (
-    <section className='pt-32 sm:pt-24 lg:pt-0 lg:ml-44 xl:ml-56'>
-      <h1 className='text-center my-6 text-xl lg:text-3xl font-semibold lg:ml-4'>Webflow Development</h1>
-      <div className='mx-auto my-3 grid grid-cols-4 gap-4 max-w-4xl place-items-center'>
-        <div className='bg-zinc-950 rounded-lg w-full h-full p-9 flex items-center text-2xl text-center font-semibold'>Responsive Design</div>
-        <div className='bg-zinc-950 rounded-lg w-full h-full p-9 flex flex-col items-center justify-center'>
+    <section className='pt-32 sm:pt-24 lg:pt-0 w-full lg:w-5/6'>
+      <h1 className='shadow-lg shadow-cyan-500/50 text-center py-4 text-xl lg:text-5xl font-semibold'>Webflow Development</h1>
+      <div className='mx-auto place-items-center px-4 my-12 lg:my-16 grid grid-cols-2 gap-4 max-w-2xl lg:max-w-7xl md:grid-cols-4 md:max-w-4xl'>
+        <div className='bg-zinc-950 shadow-lg shadow-cyan-500/50 rounded-lg w-full h-full p-3 sm:p-9 flex items-center text-2xl text-center font-semibold'>Responsive Design</div>
+        <div className='bg-zinc-950 shadow-lg shadow-cyan-500/50 rounded-lg w-full h-full p-3 sm:p-9 flex flex-col items-center justify-center'>
           <span className='text-5xl font-semibold'>10+</span>
           <span className='text-xs'>Completed Projects</span>
         </div>
-        <div className='rounded-lg w-full h-full col-span-2 row-span-2'>
+        <div className='rounded-lg md:w-full h-full col-span-2 row-span-2 shadow-lg shadow-cyan-500/50'>
           <CardsProjects
               key={projects[0].index}
               title={projects[0].title}
@@ -132,24 +132,13 @@ function Home(){
               url={projects[0].url}
           />
         </div>
-        <div className='bg-zinc-950 rounded-lg w-full h-full p-9 flex flex-col items-center justify-center'>
+        <div className='bg-zinc-950 shadow-lg shadow-cyan-500/50 rounded-lg w-full h-full p-3 sm:p-9 flex flex-col items-center justify-center'>
           <span className='text-5xl font-semibold'>5<span className='text-xs font-light'> years</span></span>
           <span className='text-xs text-center font-semibold'>Customer Service Experience</span>
         </div>
-        <div className='bg-zinc-950 rounded-lg w-full h-full p-9 flex items-center text-2xl text-center font-semibold'>React & Tailwind</div>
-        <div className='bg-zinc-950 rounded-lg w-full h-full p-9 col-span-2 text-center text-xl font-semibold'>I am fluent in both Spanish and English</div>
-        <div className='bg-zinc-950 rounded-lg w-full h-full p-9 col-span-2 text-center text-xl font-semibold'>Bachelor's degree</div>
-      </div>
-      
-    </section>
-  )
-}
-function About(){
-  return (
-    <section className='pt-32 sm:pt-24 lg:pt-0 lg:ml-44 xl:ml-56'>
-      <h1 className='text-center my-6 text-xl lg:text-3xl lg:ml-4'>About</h1>
-      <div>
-
+        <div className='bg-zinc-950 shadow-lg shadow-cyan-500/50 rounded-lg w-full h-full p-3 sm:p-9 flex justify-center items-center text-center text-2xl font-semibold'>React & Tailwind</div>
+        <div className='bg-zinc-950 shadow-lg shadow-cyan-500/50 rounded-lg w-full h-full p-3 sm:p-9 col-span-2 flex justify-center items-center text-xl font-semibold'>I am fluent in both Spanish and English</div>
+        <div className='bg-zinc-950 shadow-lg shadow-cyan-500/50 rounded-lg w-full h-full p-3 sm:p-9 col-span-2 flex justify-center items-center text-xl font-semibold'>Bachelor's degree</div>
       </div>
       
     </section>
@@ -157,26 +146,26 @@ function About(){
 }
 function App() {
   const [activeButtons, setActiveButtons] = useState("Home");
+  
   const handleClick = (text) => {
     setActiveButtons(text)
   }
   const textMenu =[
     {text: `Home`, textHover: `Home`, icon: <LiaHomeSolid/>, iconHover:<MdCastle/>},
     {text: `Projects`, textHover: `Projects`, icon: <MdWorkOutline/>, iconHover:<MdWorkHistory/>},
-    {text: `About`, textHover: `About`, icon: <BsLaptop/>, iconHover:<BsLaptopFill/>},
   ]
   return (
-    <>
+    <div className='flex justify-center '>
     <SideBar>
-      <div className="lg:mt-8 flex lg:flex-col items-center w-auto gap-4 px-3">
-        <img src="./src/assets/profilePicture.jpg" alt="Profile Picture" className='w-16 h-16 rounded-full object-cover' />
+      <div className="lg:mt-24 flex lg:flex-col items-center w-auto gap-4 px-3">
+        <img src="./src/assets/profilePicture.jpg" alt="Profile Picture" className='w-16 h-16 lg:w-24 lg:h-24 xl:w-40 xl:h-40 rounded-full object-cover' />
         
         <div className='flex flex-col items-center gap-2'>
-          <p className=' sm:text-lg text-center'>Oscar Gonzalez</p>
-          <p className='text-xs'>Web Developer</p>
+          <p className='sm:text-lg lg:text-xl xl:text-4xl text-center'>Oscar Gonzalez</p>
+          <p className='text-xs lg:text-md xl:text-lg'>Web Developer</p>
         </div>
       </div>
-      <div className="flex lg:flex-col gap-5 lg:gap-8 w-auto lg:items-start px-3">
+      <div className="flex w-full sm:w-1/2 lg:w-full justify-between lg:flex-col gap-5 lg:gap-8 lg:items-start px-8">
         {textMenu.map((menuButton, index) => (
           <ButtonMenu
           key={index}
@@ -190,10 +179,9 @@ function App() {
       </div>
     </SideBar>
     {(activeButtons === 'Projects') && (<AllProjects/>)}
-    {(activeButtons === 'About') && (<About/>)}
     {(activeButtons === 'Home') && (<Home/>)}
     
-    </>
+    </div>
   )
 }
 
