@@ -7,7 +7,7 @@ export function CardsProjects({title, buttonTexts, img, url}){
     return(
       <div className='flex flex-col justify-start bg-zinc-800 rounded-lg shadow-lg shadow-cyan-500/50'>
         <a target='_blank' href={url}>
-          <img src={`./assets/${img}`} alt={title} className='object-cover object-center w-full h-52 xl:h-96 rounded-lg xs:h-64'/>
+          <img src={`src/assets/${img}`} alt={title} className='object-cover object-center w-full h-52 xl:h-96 rounded-lg xs:h-64'/>
         </a>
         <div className='m-5'>
           <div className='flex gap-x-2 sm:gap-x-8 flex-wrap'>
