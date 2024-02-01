@@ -31,7 +31,7 @@ function App() {
           <p className='text-xs lg:text-md xl:text-lg'>Web Developer</p>
         </div>
       </div>
-      <div className="flex w-full sm:w-1/2 lg:w-full justify-between lg:flex-col gap-5 lg:gap-8 lg:items-start px-8">
+      <div className="flex w-full sm:w-1/2 lg:w-full justify-evenly lg:flex-col gap-5 lg:gap-8 lg:items-start px-8">
         {textMenu.map((menuButton, index) => (
           <ButtonMenu
           key={index}
