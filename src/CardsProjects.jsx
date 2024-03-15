@@ -3,10 +3,10 @@ import { HiOutlineExternalLink } from "react-icons/hi";
 import { LiaExternalLinkSquareAltSolid } from "react-icons/lia";
 
 export function CardsProjects({title, buttonTexts, img, url}){
-    const [toggleLink, useToggleLink] = useState(false);
+    const [toggleLink, setToggleLink] = useState(false);
     return(
       <div className='flex flex-col justify-start bg-zinc-800 rounded-lg shadow-lg shadow-cyan-500/50'>
-        <a target='_blank' href={url}>
+        <a target='_blank' href={url} rel='noreferrer noopener'>
           <img src={img} alt={title} className='object-cover object-center w-full h-52 xl:h-96 rounded-lg xs:h-64'/>
         </a>
         <div className='m-5'>
@@ -20,8 +20,9 @@ export function CardsProjects({title, buttonTexts, img, url}){
           <a  
           target='_blank' 
           href={url} 
-          onMouseEnter={() => {useToggleLink(true)}}
-          onMouseLeave={() => {useToggleLink(false)}}
+          rel='noreferrer noopener'
+          onMouseEnter={() => setToggleLink(true)}
+          onMouseLeave={() => setToggleLink(false)}
           className='flex mt-3 sm:mt-6 text-lg lg:text-xl items-center max-w-max hover:underline hover:decoration-1'>
             <h2 >{title}</h2>
             <span className='ml-2'>
