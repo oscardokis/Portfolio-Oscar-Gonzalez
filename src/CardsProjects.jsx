@@ -5,7 +5,7 @@ import { LiaExternalLinkSquareAltSolid } from "react-icons/lia";
 export function CardsProjects({title, buttonTexts, img, url}){
     const [toggleLink, setToggleLink] = useState(false);
     return(
-      <div className='flex flex-col justify-start bg-zinc-800 rounded-lg shadow-lg shadow-cyan-500/50'>
+      <div className='flex flex-col justify-start bg-zinc-800 rounded-lg shadow-lg shadow-cyan-500/50 transform transition duration-500 hover:scale-105'>
         <a target='_blank' href={url} rel='noreferrer noopener'>
           <img src={img} alt={title} className='object-cover object-center w-full h-52 xl:h-96 rounded-lg xs:h-64'/>
         </a>
